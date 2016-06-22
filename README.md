@@ -1,6 +1,5 @@
-# ArbFloats.jl
-extended precision calculations for arithmetic, elementary functions and some special functions (25..500 digits)
-
+## ArbFloats.jl
+###### Arb available as an extended precision floating point context.
 
 ```ruby
                                                          Jeffrey Sarnoff © 2016˗May˗26 in New York City
