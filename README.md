@@ -20,7 +20,6 @@ Presented with a `transparent` floating point value, the perceiver is become bes
 An `ArbFloat` is an extended precision float architected to evince `transparency`. It informs without leading or misleading.  
 An `ArbFloat`, when viewed, appears as an extended precision floating point value.  When any of the exported arithmetic, elementary or special functions is applied to an `ArbFloat`, the value transforms as an extended precision floating point interval.
 
-__intertype conversions from `ArbFloat` to other are limited to a few standard types__
 
 ###About Arb
 
