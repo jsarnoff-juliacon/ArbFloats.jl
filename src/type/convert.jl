@@ -95,8 +95,8 @@ function convert{P}(::Type{ArbFloat{P}}, x::BigFloat)
 end
 
 function convert{P}(::Type{BigFloat}, x::ArbFloat{P})
-     s = string(midpoint(x))
-     round(parse(BigFloat, s),P,2)
+     s = smartarbstring(x)
+     parse(BigFloat, s)
 end
 
 function convert{I<:Integer,P}(::Type{Rational{I}}, x::ArbFloat{P})
@@ -110,28 +110,28 @@ convert{P,S}(::Type{ArbFloat{P}}, x::Irrational{S}) =
     convert(ArbFloat{P}, convert(BigFloat,x))
 
 
-#= returns 256.0 for convert(big(1.5))
-function convert{P}(::Type{ArbFloat{P}}, x::BigFloat)
-    z = initializer(ArbFloat{P})
-    ccall(@libarb(arb_set_round_fmpz), Void, (Ptr{ArbFloat}, Ptr{BigFloat}, Int), &z, &x, P)
-    z
-end
-=#
-
 
 convert{P}(::Type{ArbFloat{P}}, y::ArbFloat{P}) = y
 
-function convert{P}(::Type{Float64}, x::ArbFloat{P})
-    s = smartarbstring(x)
-    parse(Float64,s)
+for T in (:Float64, :Float32, :Int128, :Int64, :Int32, :Int16)
+  @eval begin
+    function convert{P}(::Type{$T}, x::ArbFloat{P})
+      s = smartarbstring(x)
+      try
+          parse(($T), s)
+      catch
+          throw(DomainError)
+      end
+    end
 end
-convert{P}(::Type{Float32}, x::ArbFloat{P}) = convert(Float32,convert(Float64,x))
 
+
+#=
 function convert{I<:Integer,P}(::Type{I}, x::ArbFloat{P})
     s = smartarbstring(x)
     parse(I,split(s,".")[1])
 end
-
+=#
 
 for T in (:Int128, :Int64, :Int32, :Int16, :Float64, :Float32, :Float16, 
           :(Rational{Int64}), :(Rational{Int32}), :(Rational{Int16}), 
