@@ -123,6 +123,7 @@ for T in (:Float64, :Float32, :Int128, :Int64, :Int32, :Int16)
           throw(DomainError)
       end
     end
+  end
 end
 
 
