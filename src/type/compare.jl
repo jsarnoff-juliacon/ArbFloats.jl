@@ -12,7 +12,9 @@ function (<=){P}(x::ArbFloat{P}, y::ArbFloat{P})
     return Bool(ccall(@libarb(libarb), Cint, (Ptr{ArbFloat{P}}, Ptr{ArbFloat{P}}), &x, &y))
 end
 
-
+for F in (:(==), :(!=), :(<), :(<=), :(>=), :(>), :(isless), :(isequal))
+  @eval ($F){P,Q}(x::ArbFloat{P}, y::ArbFloat{Q}) = ($F)(promote(x,y)...)
+end
 
 (==){R<:Real,P}(x::ArbFloat{P}, y::R) = x == ArbFloat{P}(y)
 (!=){R<:Real,P}(x::ArbFloat{P}, y::R) = x != ArbFloat{P}(y)

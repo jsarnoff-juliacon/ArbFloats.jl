@@ -159,7 +159,9 @@ function approxeq{P}(x::ArbFloat{P}, y::ArbFloat{P})
 end
 
 (≊){P}(x::ArbFloat{P}, y::ArbFloat{P}) = approxeq(x,y)
-
+for F in (:overlap, :donotoverlap, :contains, :doesnotcontain, :iscontainedby, :isnotcontainedby, :approxeq)
+  @eval ($F){P,Q}(x::ArbFloat{P}, y::ArbFloat{Q}) = ($F)(promote(x,y)...)
+end
 
 """true iff x contains an integer"""
 function includesAnInteger{P}(x::ArbFloat{P})
