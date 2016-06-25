@@ -17,8 +17,7 @@ Recommended for use where elementary or special functions are evaluated to obtai
 
 Presented with a `transparent` floating point value, the perceiver is become best informed.  There is no other rendition of that floating point realization which is intrinsically more informing and none which relays the value of that floating point realization more accurately -- none with fewer digits, none with more digits, none of greater magnitude, none of lesser magnitude.
 
-An `ArbFloat` is an extended precision float architected to evince `transparency`. It informs without leading or misleading.  
-An `ArbFloat`, when viewed, appears as an extended precision floating point value.  When any of the exported arithmetic, elementary or special functions is applied to an `ArbFloat`, the value transforms as an extended precision floating point interval.
+An `ArbFloat` is an extended precision float architected to evince `transparency`. It informs without leading or misleading.  An `ArbFloat`, when viewed, appears as an extended precision floating point value.  When any of the exported arithmetic, elementary or special functions is applied to an `ArbFloat`, the value transforms as an extended precision floating point interval.
 
 
 ###About Arb
@@ -26,13 +25,10 @@ An `ArbFloat`, when viewed, appears as an extended precision floating point valu
   This work is constructed atop a state-of-the-art C library for working with _midpoint ± radius_ intervals, `Arb`.   
   `Arb` is designed and written by Fredrik Johansson, who graciously allows Julia to use it under the MIT License.  
   
-  The C libraries that this package accesses are some of the shared libraries that Nemo.jl requires and builds when it is installed; and I am calling them directly. Nemo is a computational environment where the most important software for number theory and related work. Julia is used to create a cohesive whole that shares a manner of use.  Sheparded by William Hart, it incorporates Fredrik Johansson's Arb, and benefits from Tommy Hoffman's work, and others. Those three have been especially helpful, explaining 
-  details of Arb as I refined my intent in providing ArbFloats.  
+  The C libraries that this package accesses are some of the shared libraries that Nemo.jl requires and builds when it is installed; and I am calling them directly. Nemo is a computational environment where the most important software for number theory and related work. Julia is used to create a cohesive whole that shares a manner of use.  Fredrik Johansson, William Hart, and Tommy Hoffman have been especially helpful, taking the time to explain details of Arb as they arose for me.  
   
 ######Hint
-It is a useful fiction to think of `ArbFloats` as Arb values with a zero radius -- and sometimes they are.  
-When an `ArbFloat` has a nonzero radius, the user sees only those digits that _don`t care_:  
-the digits which remain after rounding the `ArbFloat` so that the radius is subsumed (as if 0.0).
+It is a useful fiction to think of `ArbFloats` as Arb values with a zero radius -- and sometimes they are.  When an `ArbFloat` has a nonzero radius, the user sees only those digits that _don`t care_:  the digits which remain after rounding the `ArbFloat` so that the radius is subsumed (as if 0.0).
 
 
 ####Install
