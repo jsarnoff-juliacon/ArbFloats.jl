@@ -35,6 +35,17 @@ function initializer{P}(::Type{ArfFloat{P}})
     z
 end
 
+function convert{P}(::Type{BigFloat}, x::ArfFloat{P})
+    z = zero(BigFloat)
+    ccall(@libarb(arf_get_mpfr), Void, (Ptr{BigFloat}, Ptr{ArfFloat{P}}), &z, &x)
+    z
+end
+
+function convert{P}(::Type{ArfFloat{P}}, x::BigFloat)
+    z = initializer(ArfFloat{P})
+    ccall(@libarb(arf_set_mpfr), Void, (Ptr{ArfFloat{P}}, Ptr{BigFloat}), &z, &x)
+    z
+end
 
 midpoint{P}(x::ArfFloat{P}) = x
 
