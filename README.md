@@ -26,11 +26,8 @@ An `ArbFloat`, when viewed, appears as an extended precision floating point valu
   This work is constructed atop a state-of-the-art C library for working with _midpoint ± radius_ intervals, `Arb`.   
   `Arb` is designed and written by Fredrik Johansson, who graciously allows Julia to use it under the MIT License.  
   
-  The C libraries that this package accesses are some of the shared libraries that Nemo.jl requires and builds when
-  it is installed; and I am calling them directly. Nemo is a very capable cover for important software in number theory
-  and packages used when developing or investigating integer and rational algorithms.  Nemo is sheparded by William Hart,
-  incorporates Fredrik Johansson's Arb, and benefits from Tommy Hoffman's work. They have been helpful in explaining 
-  details of Arb as I refined my own intent on what ArbFloats should be.  
+  The C libraries that this package accesses are some of the shared libraries that Nemo.jl requires and builds when it is installed; and I am calling them directly. Nemo is a computational environment where the most important software for number theory and related work. Julia is used to create a cohesive whole that shares a manner of use.  Sheparded by William Hart, it incorporates Fredrik Johansson's Arb, and benefits from Tommy Hoffman's work, and others. Those three have been especially helpful, explaining 
+  details of Arb as I refined my intent in providing ArbFloats.  
   
 ######Hint
 It is a useful fiction to think of `ArbFloats` as Arb values with a zero radius -- and sometimes they are.  
