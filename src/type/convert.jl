@@ -5,6 +5,9 @@ macro ArbFloat(p,x)
     convert(ArbFloat{:($p)}, string(:($x)))
 end
 
+### No-Op to "convert" to float
+float(x::ArbFloat) = x
+
 # interconvert Arb with Arf
 
 function convert{P}(::Type{ArbFloat{P}}, x::ArfFloat{P})
