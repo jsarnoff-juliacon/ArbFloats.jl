@@ -7,6 +7,8 @@ end
 
 ### No-Op to "convert" to float
 float(x::ArbFloat) = x
+float{T<:ArbFloat}(x::T) = x
+float{P}(x::ArbFloat{P}) = x
 
 # interconvert Arb with Arf
 
