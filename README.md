@@ -1,6 +1,7 @@
-## ArbFloats.jl
 ## Please use https://github.com/JuliaArbTypes/ArbFloats.jl
+### Pkg.add("ArbFloats")
 
+## ArbFloats.jl
 ###### Arb available as an extended precision floating point context.
 
 ```ruby
