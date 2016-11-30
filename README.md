@@ -1,6 +1,8 @@
 ## ArbFloats.jl
 ###### Arb available as an extended precision floating point context.
 
+## Please use https://github.com/JuliaArbTypes/ArbFloats.jl
+
 ```ruby
                                                          Jeffrey Sarnoff © 2016˗May˗26 in New York City
 ```
