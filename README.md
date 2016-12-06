@@ -33,8 +33,17 @@ It is a useful fiction to think of `ArbFloats` as Arb values with a zero radius 
 
 ####Install
 ```julia
+Pkg.add("Nemo")
+Pkg.build("Nemo") # this takes a while
+quit()
+```
+```julia
 Pkg.clone("https://github.com/jsarnoff-juliacon/ReadableNumbers.jl")  # requires a recent Julia v0.5.0-dev
 Pkg.clone("https://github.com/jsarnoff-juliacon/ArbFloats.jl")  # requires a recent Julia v0.5.0-dev
+quit()
+```
+```julia
+Pkg.test("ArbFloats") # should work without error
 ```
 
 ####Use
