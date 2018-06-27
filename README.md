@@ -4,14 +4,14 @@
 ```ruby
                                                          Jeffrey Sarnoff © 2016˗May˗26 in New York City
 ```
-#####This is for Julia v0.5.
+##### This is for Julia v0.5.
 
-####Appropriateness 
+#### Appropriateness 
 
 Preferred for extending the precision of floating point computations from 64 bits [17 digits] up to 512 bits [150 digits].  
 Recommended for use where elementary or special functions are evaluated to obtain results with up to 250 digits [800 bits].
 
-####Conceptual Background
+#### Conceptual Background
 
 `Transparency`: a desireable quality that may obtain in the presentation of numerical quantity. Where `transparency` exists, it may well not persist. A diminution of `transparency` increases `opacity`, and vice versa. Presentation of a floating point value either evinces `transparency` or furthers `opacity`.  With `transparent` values, 'looking at a value' is 'looking through to see the knowable value'.  With `opaque` values, 'looking at a value' is 'looking away from' that.  And it is that nonresponsive, nonparticipative engagement of cognitive attention that is the `opaqueness` underlying `opacity`. 
 
@@ -20,18 +20,18 @@ Presented with a `transparent` floating point value, the perceiver is become bes
 An `ArbFloat` is an extended precision float architected to evince `transparency`. It informs without leading or misleading.  An `ArbFloat`, when viewed, appears as an extended precision floating point value.  When any of the exported arithmetic, elementary or special functions is applied to an `ArbFloat`, the value transforms as an extended precision floating point interval.
 
 
-###About Arb
+### About Arb
 
   This work is constructed atop a state-of-the-art C library for working with _midpoint ± radius_ intervals, `Arb`.   
   `Arb` is designed and written by Fredrik Johansson, who graciously allows Julia to use it under the MIT License.  
   
   The C libraries that this package accesses are some of the shared libraries that Nemo.jl requires and builds when it is installed; and I am calling them directly. Nemo is a computational environment where the most important software for number theory and related work. Julia is used to create a cohesive whole that shares a manner of use.  Fredrik Johansson, William Hart, and Tommy Hoffman have been especially helpful, taking the time to explain details of Arb as I was working on ArbFloats.  
   
-######Hint
+###### Hint
 It is a useful fiction to think of `ArbFloats` as Arb values with a zero radius -- and sometimes they are.  When an `ArbFloat` has a nonzero radius, the user sees only those digits that _don`t care_:  the digits which remain after rounding the `ArbFloat` so that the radius is subsumed (as if 0.0).
 
 
-####Install
+#### Install
 ```julia
 Pkg.add("Nemo")
 Pkg.build("Nemo") # this takes a while
@@ -46,7 +46,7 @@ quit()
 Pkg.test("ArbFloats") # should work without error
 ```
 
-####Use
+#### Use
 ```F#
 using ArbFloats
 
