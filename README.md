@@ -1,6 +1,8 @@
 ## ArbFloats.jl
 ###### Arb available as an extended precision floating point context.
 
+### historical implemeentation ... use ArbNumberics.jl for Julia v1
+
 ```ruby
                                                          Jeffrey Sarnoff © 2016˗May˗26 in New York City
 ```
